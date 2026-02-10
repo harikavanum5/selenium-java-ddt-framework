@@ -16,8 +16,7 @@ public class RecruitmentPage {
 
     public RecruitmentPage(WebDriver driver) {
         this.driver = driver;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(40));
-        
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(30));
     }
 
 
@@ -74,39 +73,15 @@ public class RecruitmentPage {
         }
     }
 
-    // private void selectDropdown(By locator, String value) {
-
-    //     safeClick(locator);
-
-    //     By option =
-    //             By.xpath("//div[@role='listbox']//span[normalize-space()='" + value + "']");
-
-    //     safeClick(option);
-    // }
     private void selectDropdown(By locator, String value) {
 
-    waitForLoader();
+        safeClick(locator);
 
-    // click dropdown first
-    WebElement dropdown =
-            wait.until(ExpectedConditions.elementToBeClickable(locator));
+        By option =
+                By.xpath("//div[@role='listbox']//span[normalize-space()='" + value + "']");
 
-    dropdown.click();
-
-    // wait for listbox visible
-    wait.until(ExpectedConditions.visibilityOfElementLocated(
-            By.xpath("//div[@role='listbox']")));
-
-    // relaxed xpath (more stable in Jenkins)
-    By option =
-            By.xpath("//div[@role='listbox']//span[contains(text(),'" + value + "')]");
-
-    WebElement optionElement =
-            wait.until(ExpectedConditions.elementToBeClickable(option));
-
-    optionElement.click();
-}
-
+        safeClick(option);
+    }
 
 
     @Step("Select Vacancy: {vacancy}")
@@ -141,21 +116,21 @@ public class RecruitmentPage {
         return new AddCandidatePage(driver);
     }
 
-
-    /* ======================================================
-       CAPTURE TABLE RESULTS
-    ====================================================== */
-
-    @Step("Capture Recruitment Results Table")
+    @Step("Capture Recruitment Results")
     public List<String[]> captureResults() {
 
         waitForLoader();
 
-        wait.until(ExpectedConditions.presenceOfElementLocated(tableRows));
+        List<String[]> data = new ArrayList<>();
 
+        // rows unte capture
         List<WebElement> rows = driver.findElements(tableRows);
 
-        List<String[]> data = new ArrayList<>();
+        if (rows.size() == 0) {
+            // No records case handled safely
+            System.out.println("No Records Found in UI");
+            return data; // empty list
+        }
 
         for (WebElement row : rows) {
 
