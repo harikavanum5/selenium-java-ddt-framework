@@ -34,11 +34,14 @@ public class AddCandidatePage {
 
     @Step("Fill Candidate Details")
     public void fillCandidate(String f, String m, String l,
-                              String mail, String ph) {
+                              String mail, String ph) throws Exception {
 
         driver.findElement(firstName).sendKeys(f);
+        Thread.sleep(1000);
+
         driver.findElement(middleName).sendKeys(m);
         driver.findElement(lastName).sendKeys(l);
+        Thread.sleep(2000);
 
         driver.findElement(email).sendKeys(mail);
         driver.findElement(phone).sendKeys(ph);
