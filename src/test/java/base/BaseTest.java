@@ -1,40 +1,4 @@
-//package base;
-//
-//import org.openqa.selenium.WebDriver;
-//import org.openqa.selenium.chrome.ChromeDriver;
-//import org.testng.ITestResult;
-//import org.testng.annotations.AfterMethod;
-//import org.testng.annotations.BeforeMethod;
-//import org.testng.annotations.Listeners;
-//
-//import io.github.bonigarcia.wdm.WebDriverManager;
-//import listeners.ExtentTestListener;
-//import utils.AllureUtils;
-//
-//
-//@Listeners(ExtentTestListener.class)
-//
-//public class BaseTest {
-//
-//    public WebDriver driver;
-//
-//    @BeforeMethod
-//    public void setup() {
-//        WebDriverManager.chromedriver().setup();
-//        driver = new ChromeDriver();
-//        driver.manage().window().maximize();
-//		driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
-//
-//    }
-//
-//    @AfterMethod
-//    public void tearDown() {
-//        if(driver != null) {
-//            driver.quit();
-//        }
-//    }
-// 
-//}
+
 package base;
 
 import java.time.Duration;
@@ -55,18 +19,41 @@ public class BaseTest {
        OPEN ONLY ONCE
        ================================= */
 
+    // @BeforeClass
+    // public void setup() {
+
+    //     WebDriverManager.chromedriver().setup();
+
+    //     driver = new ChromeDriver();
+
+    //     driver.manage().window().maximize();
+    //     driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+
+    //     driver.get("https://opensource-demo.orangehrmlive.com/");
+    // }
     @BeforeClass
-    public void setup() {
+public void setup() {
 
-        WebDriverManager.chromedriver().setup();
+    WebDriverManager.chromedriver().setup();
 
-        driver = new ChromeDriver();
+    ChromeOptions options = new ChromeOptions();
 
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+    // 🔥 Jenkins safe settings
+    options.addArguments("--headless=new");     // CI mode
+    options.addArguments("--window-size=1920,1080");
+    options.addArguments("--disable-gpu");
+    options.addArguments("--remote-allow-origins=*");
+    options.addArguments("--no-sandbox");
 
-        driver.get("https://opensource-demo.orangehrmlive.com/");
-    }
+    driver = new ChromeDriver(options);
+
+    //  remove implicit wait (causes flakiness)
+    driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(0));
+
+    driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(60));
+
+    driver.get("https://opensource-demo.orangehrmlive.com/");
+}
 
 
     /* =================================
