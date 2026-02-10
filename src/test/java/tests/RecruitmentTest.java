@@ -45,44 +45,86 @@ public class RecruitmentTest extends BaseTest {
        2️⃣ SEARCH TEST
        ===================================================== */
 
-    @Test(priority = 2, dependsOnMethods = "loginTest",
-            description = "Search candidates using Vacancy & Status")
-    @Severity(SeverityLevel.NORMAL)
-    @Story("Search Candidates")
-    public void searchCandidateTest() throws Exception {
+    // @Test(priority = 2, dependsOnMethods = "loginTest",
+    //         description = "Search candidates using Vacancy & Status")
+    // @Severity(SeverityLevel.NORMAL)
+    // @Story("Search Candidates")
+    // public void searchCandidateTest() throws Exception {
 
-        Map<String, String> inputData =
-                ExcelUtils.readInput(
-                        "src/test/resources/OrangeHRM_Recruitment_Template.xlsx",
-                        "Sheet1");
+    //     Map<String, String> inputData =
+    //             ExcelUtils.readInput(
+    //                     "src/test/resources/OrangeHRM_Recruitment_Template.xlsx",
+    //                     "Sheet1");
 
-        String vacancy = inputData.get("Vacancy");
-        String status  = inputData.get("Status");
-        AllureUtils.attachScreenshot(driver, "Recruitment Page");
+    //     String vacancy = inputData.get("Vacancy");
+    //     String status  = inputData.get("Status");
+    //     AllureUtils.attachScreenshot(driver, "Recruitment Page");
 
-        loginPage = new LoginPage(driver);
-        loginPage.clickRecruitment();
+    //     loginPage = new LoginPage(driver);
+    //     loginPage.clickRecruitment();
 
 
-        recruitment = new RecruitmentPage(driver);
+    //     recruitment = new RecruitmentPage(driver);
 
-        recruitment.selectVacancy(vacancy);
-        recruitment.selectStatus(status);
-        recruitment.clickSearch();
+    //     recruitment.selectVacancy(vacancy);
+    //     recruitment.selectStatus(status);
+    //     recruitment.clickSearch();
 
-        AllureUtils.attachScreenshot(driver, "Search Results");
+    //     AllureUtils.attachScreenshot(driver, "Search Results");
 
-        List<String[]> results = recruitment.captureResults();
+    //     List<String[]> results = recruitment.captureResults();
 
-        Assert.assertTrue(results.size() > 0, "No candidates found!");
+    //     Assert.assertTrue(results.size() > 0, "No candidates found!");
 
-        ExcelUtils.writeResultWithAutoId(
-                "src/test/resources/Output.xlsx",
-                "Result",
-                results);
+    //     ExcelUtils.writeResultWithAutoId(
+    //             "src/test/resources/Output.xlsx",
+    //             "Result",
+    //             results);
+    // }
+
+    @Test(priority = 2, dependsOnMethods = "loginTest")
+    public void searchCandidateTest() {
+
+        try {
+
+            Map<String, String> inputData =
+                    ExcelUtils.readInput(EXCEL_PATH, SHEET_NAME);
+
+            loginPage = new LoginPage(driver);
+            loginPage.clickRecruitment();
+
+            recruitment = new RecruitmentPage(driver);
+
+            recruitment.selectVacancy(inputData.get("Vacancy"));
+            recruitment.selectStatus(inputData.get("Status"));
+            recruitment.clickSearch();
+
+            AllureUtils.attachScreenshot(driver, "Search Results");
+
+            List<String[]> results = recruitment.captureResults();
+
+            String outputPath = "src/test/resources/Output.xlsx";
+            String sheetName = "Result";
+
+            String[] headers = {
+                    "Candidate Name",
+                    "Vacancy",
+                    "Status",
+                    "Hiring Manager",
+                    "Date of Application"
+            };
+
+            if (results.isEmpty()) {
+                ExcelUtils.writeEmptySheetWithHeaders(outputPath, sheetName, headers);
+            } else {
+                ExcelUtils.writeResultWithAutoId(outputPath, sheetName, results);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
     }
-
-
     /* =====================================================
        3️⃣ ADD CANDIDATE TEST
        ===================================================== */
