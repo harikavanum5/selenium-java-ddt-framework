@@ -74,15 +74,39 @@ public class RecruitmentPage {
         }
     }
 
+    // private void selectDropdown(By locator, String value) {
+
+    //     safeClick(locator);
+
+    //     By option =
+    //             By.xpath("//div[@role='listbox']//span[normalize-space()='" + value + "']");
+
+    //     safeClick(option);
+    // }
     private void selectDropdown(By locator, String value) {
 
-        safeClick(locator);
+    waitForLoader();
 
-        By option =
-                By.xpath("//div[@role='listbox']//span[normalize-space()='" + value + "']");
+    // click dropdown first
+    WebElement dropdown =
+            wait.until(ExpectedConditions.elementToBeClickable(locator));
 
-        safeClick(option);
-    }
+    dropdown.click();
+
+    // wait for listbox visible
+    wait.until(ExpectedConditions.visibilityOfElementLocated(
+            By.xpath("//div[@role='listbox']")));
+
+    // relaxed xpath (more stable in Jenkins)
+    By option =
+            By.xpath("//div[@role='listbox']//span[contains(text(),'" + value + "')]");
+
+    WebElement optionElement =
+            wait.until(ExpectedConditions.elementToBeClickable(option));
+
+    optionElement.click();
+}
+
 
 
     @Step("Select Vacancy: {vacancy}")
