@@ -2,7 +2,6 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-
   <groupId>SeleniumDataDrivenFramework</groupId>
   <artifactId>Framework</artifactId>
   <version>0.0.1-SNAPSHOT</version>
@@ -11,7 +10,6 @@
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-
     <selenium.version>4.18.1</selenium.version>
     <testng.version>7.9.0</testng.version>
     <poi.version>5.2.5</poi.version>
@@ -25,10 +23,10 @@
       <version>${selenium.version}</version>
     </dependency>
 
-    <!-- Chrome DevTools (use v112 for stability) -->
+    <!-- Selenium DevTools -->
     <dependency>
       <groupId>org.seleniumhq.selenium</groupId>
-      <artifactId>selenium-devtools-v112</artifactId>
+      <artifactId>selenium-devtools</artifactId>
       <version>${selenium.version}</version>
     </dependency>
 
@@ -68,7 +66,7 @@
       <version>5.1.1</version>
     </dependency>
 
-    <!-- SLF4J -->
+    <!-- SLF4J binding -->
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-simple</artifactId>
