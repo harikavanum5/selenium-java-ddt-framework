@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="3" failures="0" name="TestSuite" time="101.084" errors="0" skipped="0">
+<testsuite tests="3" failures="0" name="TestSuite" time="128.277" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="java.vm.version" value="17.0.8+9-LTS-211"/>
@@ -25,9 +25,9 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="user.variant" value=""/>
     <property name="os.name" value="Windows 11"/>
-    <property name="classworlds.conf" value="D:\Selenium_demo_project\.metadata\.plugins\org.eclipse.m2e.launching\launches\m2conf6330012177763695855.tmp"/>
+    <property name="classworlds.conf" value="D:\Selenium_demo_project\.metadata\.plugins\org.eclipse.m2e.launching\launches\m2conf12938182006803469897.tmp"/>
     <property name="sun.jnu.encoding" value="Cp1252"/>
-    <property name="java.library.path" value="C:\Program Files\Java\jdk-17\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:/Users/hvanum/.p2/pool/plugins/org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_20.0.2.v20230801-2057/jre/bin/server;C:/Users/hvanum/.p2/pool/plugins/org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_20.0.2.v20230801-2057/jre/bin;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Oracle\Java\java8path;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Users\hvanum\AppData\Local\Programs\Python\Python311;C:\Program Files\nodejs;C:\Users\hvanum\Downloads\apache-jmeter-5.6.3\apache-jmeter-5.6.3;C:\Program Files\Amazon\AWSCLIV2\;C:\Users\hvanum\Downloads\sonarqube-8.9.10.61524\sonarqube-8.9.10.61524\bin;C:\Users\hvanum\Downloads\sonarqube-8.9.10.61524\sonarqube-8.9.10.61524\bin\windows-x86-64;C:\Program Files\Java\jdk-17\bin;C:\Users\hvanum\Downloads\apache-tomcat-10.1.40-windows-x64\apache-tomcat-10.1.40\bin;C:\Program Files\Git\cmd;C:\Program Files\Docker\Docker\resources\bin;C:\Users\hvanum\AppData\Local\Programs\Python\Python311\Scripts\;C:\Users\hvanum\AppData\Local\Programs\Python\Python311\;C:\Users\hvanum\AppData\Local\Microsoft\WindowsApps;C:\Users\hvanum\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\hvanum\AppData\Roaming\npm;C:\Users\hvanum\Desktop;;."/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk-17\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:/Users/hvanum/.p2/pool/plugins/org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_20.0.2.v20230801-2057/jre/bin/server;C:/Users/hvanum/.p2/pool/plugins/org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_20.0.2.v20230801-2057/jre/bin;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Oracle\Java\java8path;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Users\hvanum\AppData\Local\Programs\Python\Python311;C:\Program Files\nodejs;C:\Users\hvanum\Downloads\apache-jmeter-5.6.3\apache-jmeter-5.6.3;C:\Program Files\Amazon\AWSCLIV2\;C:\Users\hvanum\Downloads\sonarqube-8.9.10.61524\sonarqube-8.9.10.61524\bin;C:\Users\hvanum\Downloads\sonarqube-8.9.10.61524\sonarqube-8.9.10.61524\bin\windows-x86-64;C:\Program Files\Java\jdk-17\bin;C:\Users\hvanum\Downloads\apache-tomcat-10.1.40-windows-x64\apache-tomcat-10.1.40\bin;C:\Program Files\Java\jdk-21\bin;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files\Git\cmd;C:\Users\hvanum\Downloads\apache-maven-3.9.11-bin\apache-maven-3.9.11\bin;C:\Users\hvanum\AppData\Local\Programs\Python\Python311\Scripts\;C:\Users\hvanum\AppData\Local\Programs\Python\Python311\;C:\Users\hvanum\AppData\Local\Microsoft\WindowsApps;C:\Users\hvanum\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\hvanum\AppData\Roaming\npm;C:\WINDOWS\system32;;."/>
     <property name="jdk.debug" value="release"/>
     <property name="java.class.version" value="61.0"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
@@ -57,7 +57,7 @@
     <property name="sun.cpu.endian" value="little"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="tests.RecruitmentTest" name="loginTest" time="1.296"/>
-  <testcase classname="tests.RecruitmentTest" name="searchCandidateTest" time="71.42"/>
-  <testcase classname="tests.RecruitmentTest" name="addCandidateTest" time="28.368"/>
+  <testcase classname="tests.RecruitmentTest" name="loginTest" time="1.947"/>
+  <testcase classname="tests.RecruitmentTest" name="searchCandidateTest" time="81.121"/>
+  <testcase classname="tests.RecruitmentTest" name="addCandidateTest" time="45.209"/>
 </testsuite>

@@ -139,8 +139,6 @@
                   <a name="addCandidateTest">
                   </a> <!-- addCandidateTest -->
                   <span class="method-name">addCandidateTest</span>
-                  <em>
-(Add new candidate to Recruitment)                  </em>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
@@ -148,8 +146,6 @@
                   <a name="loginTest">
                   </a> <!-- loginTest -->
                   <span class="method-name">loginTest</span>
-                  <em>
-(Login with valid credentials)                  </em>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
@@ -157,8 +153,6 @@
                   <a name="searchCandidateTest">
                   </a> <!-- searchCandidateTest -->
                   <span class="method-name">searchCandidateTest</span>
-                  <em>
-(Search candidates using Vacancy & Status)                  </em>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -219,20 +213,20 @@ data.addRows(3);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'searchCandidateTest')
 data.setCell(0, 2, 'tests.RecruitmentTest')
-data.setCell(0, 3, 71417);
+data.setCell(0, 3, 81119);
 data.setCell(1, 0, 1)
 data.setCell(1, 1, 'addCandidateTest')
 data.setCell(1, 2, 'tests.RecruitmentTest')
-data.setCell(1, 3, 28367);
+data.setCell(1, 3, 45204);
 data.setCell(2, 0, 2)
 data.setCell(2, 1, 'loginTest')
 data.setCell(2, 2, 'tests.RecruitmentTest')
-data.setCell(2, 3, 1234);
+data.setCell(2, 3, 1897);
 window.suiteTableData['Command_line_suite']= { tableData: data, tableDiv: 'times-div-Command_line_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 1 minutes</span>
+              <span class="suite-total-time">Total running time: 2 minutes</span>
               <div id="times-div-Command_line_suite">
               </div> <!-- times-div-Command_line_suite -->
             </div> <!-- times-div -->
@@ -247,9 +241,18 @@ return data;
         </div> <!-- panel -->
         <div panel-name="ignored-methods-Command_line_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">0 ignored methods</span>
+            <span class="header-content">2 ignored methods</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
+            <div class="ignored-class-div">
+              <span class="ignored-class-name">tests.RecruitmentTest</span>
+              <div class="ignored-methods-div">
+                <span class="ignored-method-name">tearDownReport</span>
+                <br/>
+                <span class="ignored-method-name">setupReport</span>
+                <br/>
+              </div> <!-- ignored-methods-div -->
+            </div> <!-- ignored-class-div -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
         <div panel-name="chronological-Command_line_suite" class="panel">
@@ -258,39 +261,53 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
+              <div class="chronological-class-name">base.BaseTest</div> <!-- chronological-class-name -->
+              <div class="configuration-suite before">
+                <span class="method-name">setupReport</span>
+                <span class="method-start">0 ms</span>
+              </div> <!-- configuration-suite before -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
               <div class="chronological-class-name">tests.RecruitmentTest</div> <!-- chronological-class-name -->
               <div class="configuration-class before">
                 <span class="method-name">setup</span>
-                <span class="method-start">0 ms</span>
+                <span class="method-start">28 ms</span>
               </div> <!-- configuration-class before -->
               <div class="test-method">
                 <span class="method-name">loginTest</span>
-                <span class="method-start">13603 ms</span>
+                <span class="method-start">50560 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">takeScreenshotOnFailure([TestResult name=loginTest status=SUCCESS method=RecruitmentTest.loginTest()[pri:1, instance:tests.R...)</span>
-                <span class="method-start">14899 ms</span>
+                <span class="method-start">52511 ms</span>
               </div> <!-- configuration-method after -->
               <div class="test-method">
                 <span class="method-name">searchCandidateTest</span>
-                <span class="method-start">14920 ms</span>
+                <span class="method-start">52531 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">takeScreenshotOnFailure([TestResult name=searchCandidateTest status=SUCCESS method=RecruitmentTest.searchCandidateTest()[pri...)</span>
-                <span class="method-start">86341 ms</span>
+                <span class="method-start">133653 ms</span>
               </div> <!-- configuration-method after -->
               <div class="test-method">
                 <span class="method-name">addCandidateTest</span>
-                <span class="method-start">86344 ms</span>
+                <span class="method-start">133655 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">takeScreenshotOnFailure([TestResult name=addCandidateTest status=SUCCESS method=RecruitmentTest.addCandidateTest()[pri:3, in...)</span>
-                <span class="method-start">114713 ms</span>
+                <span class="method-start">178865 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-class after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">114715 ms</span>
+                <span class="method-start">178871 ms</span>
               </div> <!-- configuration-class after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">base.BaseTest</div> <!-- chronological-class-name -->
+              <div class="configuration-suite after">
+                <span class="method-name">tearDownReport</span>
+                <span class="method-start">179518 ms</span>
+              </div> <!-- configuration-suite after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
       </div> <!-- main-panel-root -->

@@ -15,10 +15,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class ExcelUtils {
 
-	/*
-	 * ================================================= READ INPUT
-	 * =================================================
-	 */
+
 	public static Map<String, String> readInput(String filePath, String sheetName) throws Exception {
 
 		Map<String, String> dataMap = new HashMap<>();
@@ -42,10 +39,8 @@ public class ExcelUtils {
 		return dataMap;
 	}
 
-	/*
-	 * ================================================= WRITE RESULT (PERFECT
-	 * ALIGNMENT + AUTO ID) =================================================
-	 */
+
+	
 	public static void writeResultWithAutoId(String filePath, String sheetName, List<String[]> results)
 			throws Exception {
 
@@ -70,11 +65,6 @@ public class ExcelUtils {
 
 		String[] headers = { "Id","", "Vacancy", "Candidate", "Hiring Manager", "Date of Application", "Status" };
 
-		/*
-		 * ================================================= FORCE HEADER FIX
-		 * (IMPORTANT) Always create header at row 0, col 0
-		 * =================================================
-		 */
 		Row headerRow = sheet.getRow(0);
 
 		if (headerRow == null) {
@@ -88,25 +78,16 @@ public class ExcelUtils {
 			cell.setCellValue(headers[i]);
 		}
 
-		/*
-		 * ================================================= FIND NEXT ROW CORRECTLY
-		 * =================================================
-		 */
+	
 		int nextRow = sheet.getLastRowNum() + 1;
 
 		if (nextRow == 0)
 			nextRow = 1;
 
-		/*
-		 * ================================================= AUTO ID BASED ON EXISTING
-		 * ROWS =================================================
-		 */
+	
 		int id = nextRow;
 
-		/*
-		 * ================================================= WRITE DATA
-		 * =================================================
-		 */
+	
 		for (String[] rowData : results) {
 
 			Row row = sheet.createRow(nextRow++);
@@ -118,10 +99,7 @@ public class ExcelUtils {
 			}
 		}
 
-		/*
-		 * ================================================= AUTO SIZE
-		 * =================================================
-		 */
+
 		for (int i = 0; i < headers.length; i++) {
 			sheet.autoSizeColumn(i);
 		}
@@ -131,7 +109,73 @@ public class ExcelUtils {
 		fos.close();
 		wb.close();
 	}
+	 public static void writeEmptySheetWithHeaders(
+	            String path,
+	            String sheetName,
+	            String[] headers) throws Exception {
+
+	        Workbook wb;
+	        Sheet sheet;
+
+	        File file = new File(path);
+
+	        if (file.exists()) {
+	            wb = new XSSFWorkbook(new FileInputStream(file));
+	            sheet = wb.getSheet(sheetName);
+
+	            if (sheet != null) {
+	                int index = wb.getSheetIndex(sheet);
+	                wb.removeSheetAt(index);
+	            }
+
+	            sheet = wb.createSheet(sheetName);
+	        } else {
+	            wb = new XSSFWorkbook();
+	            sheet = wb.createSheet(sheetName);
+	        }
+
+	        Row headerRow = sheet.createRow(0);
+
+	        for (int i = 0; i < headers.length; i++) {
+	            Cell cell = headerRow.createCell(i);
+	            cell.setCellValue(headers[i]);
+	        }
+
+	        FileOutputStream fos = new FileOutputStream(path);
+	        wb.write(fos);
+
+	        wb.close();
+	        fos.close();
+	    }
+	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //
 //package utils;

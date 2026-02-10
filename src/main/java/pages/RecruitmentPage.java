@@ -116,21 +116,21 @@ public class RecruitmentPage {
         return new AddCandidatePage(driver);
     }
 
-
-    /* ======================================================
-       CAPTURE TABLE RESULTS
-    ====================================================== */
-
-    @Step("Capture Recruitment Results Table")
+    @Step("Capture Recruitment Results")
     public List<String[]> captureResults() {
 
         waitForLoader();
 
-        wait.until(ExpectedConditions.presenceOfElementLocated(tableRows));
+        List<String[]> data = new ArrayList<>();
 
+        // rows unte capture
         List<WebElement> rows = driver.findElements(tableRows);
 
-        List<String[]> data = new ArrayList<>();
+        if (rows.size() == 0) {
+            // No records case handled safely
+            System.out.println("No Records Found in UI");
+            return data; // empty list
+        }
 
         for (WebElement row : rows) {
 
